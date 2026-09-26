@@ -1,0 +1,1442 @@
+{
+  "seed": 20260926,
+  "base": {
+    "source": "kaggle:mhdzahier/travel-insurance",
+    "rows": 63326
+  },
+  "months": [
+    "2026-07",
+    "2026-08"
+  ],
+  "insurers": [
+    {
+      "id": "A",
+      "name": "Albion Travel Underwriting"
+    },
+    {
+      "id": "B",
+      "name": "Brightwater Assistance MGA"
+    },
+    {
+      "id": "C",
+      "name": "Cobalt Travel Insurance"
+    }
+  ],
+  "files": [
+    {
+      "insurer": "A",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/A/policies_2026-07.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Policy Number",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Insured Name",
+            "target": "insured_name",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Start Date",
+            "target": "inception_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "End Date",
+            "target": "expiry_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Product",
+            "target": "product",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Destination",
+            "target": "destination",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Sum Insured",
+            "target": "sum_insured",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Gross Premium",
+            "target": "gross_premium",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Currency",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/A/claims_2026-07.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Claim Number",
+            "target": "claim_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Policy Number",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Date of Loss",
+            "target": "date_of_loss",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Date Reported",
+            "target": "date_notified",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Claim Status",
+            "target": "status",
+            "transform": {
+              "kind": "enum",
+              "values": {
+                "Open": "open",
+                "Closed": "closed",
+                "Re-opened": "reopened"
+              }
+            }
+          },
+          {
+            "source": "Cause of Loss",
+            "target": "cause",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Paid This Month",
+            "target": "paid_this_month",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Paid To Date",
+            "target": "paid_to_date",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Reserve Movement",
+            "target": "reserve_movement",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Outstanding Reserve",
+            "target": "outstanding_reserve",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Currency",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "A",
+      "kind": "policy",
+      "month": "2026-08",
+      "path": "data/generated/A/policies_2026-08.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Policy Number",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Insured Name",
+            "target": "insured_name",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Start Date",
+            "target": "inception_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "End Date",
+            "target": "expiry_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Product",
+            "target": "product",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Destination",
+            "target": "destination",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Sum Insured",
+            "target": "sum_insured",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Gross Premium",
+            "target": "gross_premium",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Currency",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/A/claims_2026-08.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Claim Number",
+            "target": "claim_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Policy Number",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Date of Loss",
+            "target": "date_of_loss",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Date Reported",
+            "target": "date_notified",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Claim Status",
+            "target": "status",
+            "transform": {
+              "kind": "enum",
+              "values": {
+                "Open": "open",
+                "Closed": "closed",
+                "Re-opened": "reopened"
+              }
+            }
+          },
+          {
+            "source": "Cause of Loss",
+            "target": "cause",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Paid This Month",
+            "target": "paid_this_month",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Paid To Date",
+            "target": "paid_to_date",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Reserve Movement",
+            "target": "reserve_movement",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Outstanding Reserve",
+            "target": "outstanding_reserve",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Currency",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "B",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/B/policies_2026-07.xlsx",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Policy Number",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Policy Holder",
+            "target": "insured_name",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Cover Start",
+            "target": "inception_date",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Cover End",
+            "target": "expiry_date",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Plan",
+            "target": "product",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Destination",
+            "target": "destination",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Amounts Sum Insured",
+            "target": "sum_insured",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Amounts Premium",
+            "target": "gross_premium",
+            "transform": {
+              "kind": "amount"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/B/claims_2026-07.xlsx",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Claim Number",
+            "target": "claim_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Claim Policy No",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Dates Loss",
+            "target": "date_of_loss",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Dates Advised",
+            "target": "date_notified",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Status",
+            "target": "status",
+            "transform": {
+              "kind": "enum",
+              "values": {
+                "OPEN": "open",
+                "CLOSED": "closed",
+                "REOPENED": "reopened"
+              }
+            }
+          },
+          {
+            "source": "Cause",
+            "target": "cause",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Paid This Month",
+            "target": "paid_this_month",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Paid To Date",
+            "target": "paid_to_date",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Reserve Movement",
+            "target": "reserve_movement",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Reserve Outstanding",
+            "target": "outstanding_reserve",
+            "transform": {
+              "kind": "amount"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "B",
+      "kind": "policy",
+      "month": "2026-08",
+      "path": "data/generated/B/policies_2026-08.xlsx",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Policy Number",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Policy Holder",
+            "target": "insured_name",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Cover Start",
+            "target": "inception_date",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Cover End",
+            "target": "expiry_date",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Plan",
+            "target": "product",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Destination",
+            "target": "destination",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Amounts Sum Insured",
+            "target": "sum_insured",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Amounts Premium",
+            "target": "gross_premium",
+            "transform": {
+              "kind": "amount"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/B/claims_2026-08.xlsx",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Claim Number",
+            "target": "claim_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Claim Policy No",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Dates Loss",
+            "target": "date_of_loss",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Dates Advised",
+            "target": "date_notified",
+            "transform": {
+              "kind": "date",
+              "order": "MDY"
+            }
+          },
+          {
+            "source": "Status",
+            "target": "status",
+            "transform": {
+              "kind": "enum",
+              "values": {
+                "OPEN": "open",
+                "CLOSED": "closed",
+                "REOPENED": "reopened"
+              }
+            }
+          },
+          {
+            "source": "Cause",
+            "target": "cause",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Paid This Month",
+            "target": "paid_this_month",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Paid To Date",
+            "target": "paid_to_date",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Reserve Movement",
+            "target": "reserve_movement",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Reserve Outstanding",
+            "target": "outstanding_reserve",
+            "transform": {
+              "kind": "amount"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "C",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/C/policies_2026-07.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Pol No",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Name",
+            "target": "insured_name",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Incep",
+            "target": "inception_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Exp",
+            "target": "expiry_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Prod",
+            "target": "product",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Dest",
+            "target": "destination",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "SI",
+            "target": "sum_insured",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "GWP",
+            "target": "gross_premium",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Ccy",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          },
+          {
+            "source": "Agt",
+            "target": null,
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Chnl",
+            "target": null,
+            "transform": {
+              "kind": "none"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/C/claims_2026-07.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Clm No",
+            "target": "claim_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Pol No",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "DOL",
+            "target": "date_of_loss",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "DON",
+            "target": "date_notified",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Clsd",
+            "target": "status",
+            "transform": {
+              "kind": "enum",
+              "values": {
+                "Y": "closed",
+                "N": "open"
+              }
+            }
+          },
+          {
+            "source": "Cause",
+            "target": "cause",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Pd Mth",
+            "target": "paid_this_month",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Pd",
+            "target": "paid_to_date",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Res Mvt",
+            "target": "reserve_movement",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "O/S",
+            "target": "outstanding_reserve",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Ccy",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          },
+          {
+            "source": "Lit",
+            "target": null,
+            "transform": {
+              "kind": "none"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "C",
+      "kind": "policy",
+      "month": "2026-08",
+      "path": "data/generated/C/policies_2026-08.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "Exp",
+            "target": "expiry_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Incep",
+            "target": "inception_date",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "GWP",
+            "target": "gross_premium",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Prod",
+            "target": "product",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Agt",
+            "target": null,
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Ccy",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          },
+          {
+            "source": "Chnl",
+            "target": null,
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Pol No",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Dest",
+            "target": "destination",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "SI",
+            "target": "sum_insured",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Name",
+            "target": "insured_name",
+            "transform": {
+              "kind": "none"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/C/claims_2026-08.csv",
+      "correctedPath": "data/generated/C/claims_2026-08.corrected.csv",
+      "mapping": {
+        "defaultCurrency": "GBP",
+        "columns": [
+          {
+            "source": "O/S",
+            "target": "outstanding_reserve",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Cause",
+            "target": "cause",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Clsd",
+            "target": "status",
+            "transform": {
+              "kind": "enum",
+              "values": {
+                "Y": "closed",
+                "N": "open"
+              }
+            }
+          },
+          {
+            "source": "Pd Mth",
+            "target": "paid_this_month",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Clm No",
+            "target": "claim_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "DON",
+            "target": "date_notified",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Paid TD",
+            "target": "paid_to_date",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Res Mvt",
+            "target": "reserve_movement",
+            "transform": {
+              "kind": "amount"
+            }
+          },
+          {
+            "source": "Pol No",
+            "target": "policy_ref",
+            "transform": {
+              "kind": "none"
+            }
+          },
+          {
+            "source": "Ccy",
+            "target": "currency",
+            "transform": {
+              "kind": "currency"
+            }
+          },
+          {
+            "source": "DOL",
+            "target": "date_of_loss",
+            "transform": {
+              "kind": "date",
+              "order": "DMY"
+            }
+          },
+          {
+            "source": "Lit",
+            "target": null,
+            "transform": {
+              "kind": "none"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "planted": [
+    {
+      "insurer": "A",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/A/policies_2026-07.csv",
+      "rule": "missing_required",
+      "severity": "error",
+      "sourceRow": 68,
+      "sourceColumn": "Policy Number",
+      "note": "policy ref left blank"
+    },
+    {
+      "insurer": "A",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/A/policies_2026-07.csv",
+      "rule": "duplicate_policy_ref",
+      "severity": "error",
+      "sourceRow": 104,
+      "sourceColumn": "Policy Number",
+      "note": "second row for TRV-A-000019"
+    },
+    {
+      "insurer": "A",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/A/policies_2026-07.csv",
+      "rule": "unparseable_date",
+      "severity": "error",
+      "sourceRow": 121,
+      "sourceColumn": "Start Date",
+      "note": "31 February"
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/A/claims_2026-07.csv",
+      "rule": "paid_exceeds_sum_insured",
+      "severity": "warning",
+      "sourceRow": 7,
+      "sourceColumn": "Paid To Date",
+      "note": "paid £500 over the limit"
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/A/claims_2026-07.csv",
+      "rule": "loss_outside_cover",
+      "severity": "error",
+      "sourceRow": 11,
+      "sourceColumn": "Date of Loss",
+      "note": "loss 3 days before cover starts 2026-07-28"
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/A/claims_2026-07.csv",
+      "rule": "duplicate_claim_ref",
+      "severity": "error",
+      "sourceRow": 13,
+      "sourceColumn": "Claim Number",
+      "note": "second row for CLM-A-00008"
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/A/claims_2026-07.csv",
+      "rule": "orphan_claim",
+      "severity": "error",
+      "sourceRow": 19,
+      "sourceColumn": "Policy Number",
+      "note": "TRV-A-996913 was never sent"
+    },
+    {
+      "insurer": "A",
+      "kind": "policy",
+      "month": "2026-08",
+      "path": "data/generated/A/policies_2026-08.csv",
+      "rule": "duplicate_policy_ref",
+      "severity": "error",
+      "sourceRow": 137,
+      "sourceColumn": "Policy Number",
+      "note": "TRV-A-000114 was already sent in 2026-07"
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/A/claims_2026-08.csv",
+      "rule": "future_date",
+      "severity": "error",
+      "sourceRow": 13,
+      "sourceColumn": "Date of Loss",
+      "note": "loss dated after the reporting period"
+    },
+    {
+      "insurer": "A",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/A/claims_2026-08.csv",
+      "rule": "missing_required",
+      "severity": "error",
+      "sourceRow": 28,
+      "sourceColumn": "Claim Number",
+      "note": "claim ref left blank"
+    },
+    {
+      "insurer": "B",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/B/policies_2026-07.xlsx",
+      "rule": "missing_required",
+      "severity": "error",
+      "sourceRow": 54,
+      "sourceColumn": "Policy Number",
+      "note": "policy ref left blank"
+    },
+    {
+      "insurer": "B",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/B/policies_2026-07.xlsx",
+      "rule": "duplicate_policy_ref",
+      "severity": "error",
+      "sourceRow": 148,
+      "sourceColumn": "Policy Number",
+      "note": "second row for BPL/2026/00128"
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/B/claims_2026-07.xlsx",
+      "rule": "loss_outside_cover",
+      "severity": "error",
+      "sourceRow": 5,
+      "sourceColumn": "Dates Loss",
+      "note": "loss 3 days before cover starts 2026-07-19"
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/B/claims_2026-07.xlsx",
+      "rule": "orphan_claim",
+      "severity": "error",
+      "sourceRow": 9,
+      "sourceColumn": "Claim Policy No",
+      "note": "BPL/2026/996106 was never sent"
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/B/claims_2026-07.xlsx",
+      "rule": "negative_reserve",
+      "severity": "error",
+      "sourceRow": 19,
+      "sourceColumn": "Reserve Outstanding",
+      "note": "reserve keyed as negative"
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/B/claims_2026-07.xlsx",
+      "rule": "paid_exceeds_sum_insured",
+      "severity": "warning",
+      "sourceRow": 21,
+      "sourceColumn": "Paid To Date",
+      "note": "paid £500 over the limit"
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/B/claims_2026-07.xlsx",
+      "rule": "duplicate_claim_ref",
+      "severity": "error",
+      "sourceRow": 23,
+      "sourceColumn": "Claim Number",
+      "note": "second row for BCL/2026/0014"
+    },
+    {
+      "insurer": "B",
+      "kind": "policy",
+      "month": "2026-08",
+      "path": "data/generated/B/policies_2026-08.xlsx",
+      "rule": "duplicate_policy_ref",
+      "severity": "error",
+      "sourceRow": 104,
+      "sourceColumn": "Policy Number",
+      "note": "second row for BPL/2026/00202"
+    },
+    {
+      "insurer": "B",
+      "kind": "policy",
+      "month": "2026-08",
+      "path": "data/generated/B/policies_2026-08.xlsx",
+      "rule": "unparseable_amount",
+      "severity": "error",
+      "sourceRow": 114,
+      "sourceColumn": "Amounts Sum Insured",
+      "note": "letter O typed for a zero"
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/B/claims_2026-08.xlsx",
+      "rule": "orphan_claim",
+      "severity": "error",
+      "sourceRow": 7,
+      "sourceColumn": "Claim Policy No",
+      "note": "BPL/2026/991272 was never sent"
+    },
+    {
+      "insurer": "B",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/B/claims_2026-08.xlsx",
+      "rule": "missing_required",
+      "severity": "error",
+      "sourceRow": 14,
+      "sourceColumn": "Claim Policy No",
+      "note": "policy ref left blank"
+    },
+    {
+      "insurer": "C",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/C/policies_2026-07.csv",
+      "rule": "expiry_before_inception",
+      "severity": "error",
+      "sourceRow": 58,
+      "sourceColumn": "Exp",
+      "note": "dates swapped"
+    },
+    {
+      "insurer": "C",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/C/policies_2026-07.csv",
+      "rule": "duplicate_policy_ref",
+      "severity": "error",
+      "sourceRow": 131,
+      "sourceColumn": "Pol No",
+      "note": "second row for C200007"
+    },
+    {
+      "insurer": "C",
+      "kind": "policy",
+      "month": "2026-07",
+      "path": "data/generated/C/policies_2026-07.csv",
+      "rule": "missing_required",
+      "severity": "error",
+      "sourceRow": 136,
+      "sourceColumn": "Pol No",
+      "note": "policy ref left blank"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/C/claims_2026-07.csv",
+      "rule": "loss_outside_cover",
+      "severity": "error",
+      "sourceRow": 12,
+      "sourceColumn": "DOL",
+      "note": "loss 3 days before cover starts 2026-07-20"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/C/claims_2026-07.csv",
+      "rule": "orphan_claim",
+      "severity": "error",
+      "sourceRow": 16,
+      "sourceColumn": "Pol No",
+      "note": "C1191133 was never sent"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/C/claims_2026-07.csv",
+      "rule": "notified_before_loss",
+      "severity": "error",
+      "sourceRow": 21,
+      "sourceColumn": "DON",
+      "note": "notification two days before the loss"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/C/claims_2026-07.csv",
+      "rule": "paid_exceeds_sum_insured",
+      "severity": "warning",
+      "sourceRow": 22,
+      "sourceColumn": "Pd",
+      "note": "paid £500 over the limit"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-07",
+      "path": "data/generated/C/claims_2026-07.csv",
+      "rule": "duplicate_claim_ref",
+      "severity": "error",
+      "sourceRow": 23,
+      "sourceColumn": "Clm No",
+      "note": "second row for CC-1001"
+    },
+    {
+      "insurer": "C",
+      "kind": "policy",
+      "month": "2026-08",
+      "path": "data/generated/C/policies_2026-08.csv",
+      "rule": "duplicate_policy_ref",
+      "severity": "error",
+      "sourceRow": 14,
+      "sourceColumn": "Pol No",
+      "note": "C200010 was already sent in 2026-07"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/C/claims_2026-08.csv",
+      "rule": "currency_mismatch",
+      "severity": "error",
+      "sourceRow": 6,
+      "sourceColumn": "Ccy",
+      "note": "claim in EUR on a GBP policy"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/C/claims_2026-08.csv",
+      "rule": "missing_required",
+      "severity": "error",
+      "sourceRow": 7,
+      "sourceColumn": "Clm No",
+      "note": "claim ref left blank"
+    },
+    {
+      "insurer": "C",
+      "kind": "claim",
+      "month": "2026-08",
+      "path": "data/generated/C/claims_2026-08.csv",
+      "rule": "duplicate_claim_ref",
+      "severity": "error",
+      "sourceRow": 24,
+      "sourceColumn": "Clm No",
+      "note": "second row for CC-1022"
+    }
+  ],
+  "movementBreaks": [
+    {
+      "insurer": "C",
+      "month": "2026-08",
+      "path": "data/generated/C/claims_2026-08.csv",
+      "correctedPath": "data/generated/C/claims_2026-08.corrected.csv",
+      "claimRef": "CC-1006",
+      "expectedOutstanding": 1329,
+      "reportedOutstanding": 1579
+    }
+  ]
+}

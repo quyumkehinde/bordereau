@@ -1,0 +1,157 @@
+Cobalt Travel Insurance policy extract
+Period: 2026-07
+
+Pol No,Name,Incep,Exp,Prod,Dest,SI,GWP,Ccy,Agt,Chnl
+C200001,Mia Taylor,27/07/26,27/08/26,Basic Plan,HONG KONG,10000,26,GBP,JZI,Online
+C200002,Amelia Singh,04/07/26,22/07/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,59.4,GBP,CWT,Online
+C200003,Arthur Brown,15/07/26,31/07/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,89.1,GBP,CWT,Online
+C200004,Siobhan Williams,28/07/26,29/08/26,Value Plan,AUSTRALIA,10000,58,GBP,JZI,Online
+C200005,George Patel,19/07/26,06/08/26,Rental Vehicle Excess Insurance,ITALY,5000,69.3,GBP,CWT,Online
+C200006,Jack Nowak,13/07/26,04/08/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,29.7,GBP,CWT,Online
+C200007,Lily Jones,12/07/26,25/07/26,Basic Plan,CHINA,10000,26,GBP,JZI,Online
+C200008,Noah Khan,26/07/26,03/08/26,Basic Plan,"TAIWAN, PROVINCE OF CHINA",10000,35,GBP,JZI,Online
+C200009,Leo Wright,24/07/26,28/08/26,Basic Plan,AUSTRALIA,10000,22,GBP,JZI,Online
+C200010,Grace White,11/07/26,19/07/26,Basic Plan,INDONESIA,10000,18,GBP,JZI,Online
+C200011,Jack Davies,24/07/26,18/09/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,9.9,GBP,CWT,Online
+C200012,Muhammad Murphy,04/07/26,10/09/26,Rental Vehicle Excess Insurance,NEW ZEALAND,5000,39.6,GBP,CWT,Online
+C200013,Theo Jones,05/07/26,11/07/26,Basic Plan,HONG KONG,10000,22,GBP,JZI,Online
+C200014,Wei Lewis,25/07/26,13/08/26,Value Plan,BRUNEI DARUSSALAM,10000,23,GBP,RAB,Online
+C200015,Mia Jones,02/07/26,12/07/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,49.5,GBP,CWT,Online
+C200016,Chloe Hall,07/07/26,09/07/26,Rental Vehicle Excess Insurance,UNITED STATES,5000,29.7,GBP,CWT,Online
+C200017,Lily Johnson,06/07/26,06/04/27,Rental Vehicle Excess Insurance,FINLAND,5000,79.2,GBP,CWT,Online
+C200018,Arthur Wilson,29/07/26,12/08/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,39.6,GBP,CWT,Online
+C200019,Ella Chen,10/07/26,13/07/26,Basic Plan,HONG KONG,10000,22,GBP,JZI,Online
+C200020,Lily Walker,30/07/26,11/09/26,Value Plan,AUSTRALIA,10000,58,GBP,JZI,Online
+C200021,Mia Smith,27/07/26,30/07/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,29.7,GBP,CWT,Online
+C200022,Wei Adeyemi,22/07/26,29/07/26,Basic Plan,VIET NAM,10000,18,GBP,JZI,Online
+C200023,Ella Davies,22/07/26,15/08/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,49.5,GBP,CWT,Online
+C200024,Sophia Smith,05/07/26,20/07/26,Basic Plan,CHINA,10000,35,GBP,JZI,Online
+C200025,Leo Thompson,12/07/26,29/07/26,Basic Plan,CHINA,10000,26,GBP,JZI,Online
+C200026,Arthur Wilson,09/07/26,04/09/26,Basic Plan,PHILIPPINES,10000,22,GBP,JZI,Online
+C200027,Muhammad White,15/07/26,19/09/26,Basic Plan,NEW ZEALAND,10000,22,GBP,JZI,Online
+C200028,Jack Walker,05/07/26,07/09/26,Basic Plan,MYANMAR,10000,33,GBP,JZI,Online
+C200029,Siobhan Lewis,26/07/26,28/07/26,Rental Vehicle Excess Insurance,THAILAND,5000,19.8,GBP,CWT,Online
+C200030,Ava Brown,06/07/26,29/08/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,89.1,GBP,CWT,Online
+C200031,Chinedu Roberts,14/07/26,12/08/26,Rental Vehicle Excess Insurance,ARGENTINA,5000,79.2,GBP,CWT,Online
+C200032,Sophia Brown,18/07/26,02/09/26,Basic Plan,INDONESIA,10000,30,GBP,JZI,Online
+C200033,Oliver Murphy,26/07/26,07/09/26,Rental Vehicle Excess Insurance,NEW ZEALAND,5000,89.1,GBP,CWT,Online
+C200034,Siobhan Green,12/07/26,03/09/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,59.4,GBP,CWT,Online
+C200035,Sophia Evans,02/07/26,10/07/26,Rental Vehicle Excess Insurance,UNITED KINGDOM,5000,79.2,GBP,CWT,Online
+C200036,Muhammad Nowak,13/07/26,20/09/26,Basic Plan,HONG KONG,10000,26,GBP,JZI,Online
+C200037,Lily Williams,21/07/26,12/08/26,Rental Vehicle Excess Insurance,TURKEY,5000,29.7,GBP,CWT,Online
+C200038,Tomasz Walker,04/07/26,09/08/26,Basic Plan,INDONESIA,10000,22,GBP,JZI,Online
+C200039,Harry Hall,17/07/26,20/07/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,29.7,GBP,CWT,Online
+C200040,Harry Chen,22/07/26,21/09/26,Travel Cruise Protect,THAILAND,15000,30,GBP,TST,Offline
+C200041,Mia Nowak,19/07/26,16/08/26,Comprehensive Plan,MALAYSIA,25000,29,GBP,CSR,Offline
+C200042,Ella Walker,05/07/26,02/09/26,Rental Vehicle Excess Insurance,UNITED KINGDOM,5000,29.7,GBP,CWT,Online
+C200043,Noah Robinson,14/07/26,14/12/26,Rental Vehicle Excess Insurance,ICELAND,5000,59.4,GBP,CWT,Online
+C200044,Freya Khan,14/07/26,02/09/26,Basic Plan,JAPAN,10000,26,GBP,JZI,Online
+C200045,Ella Evans,19/07/26,10/10/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,79.2,GBP,CWT,Online
+C200046,Freya Hall,01/07/26,09/10/26,Basic Plan,HONG KONG,10000,40,GBP,JZI,Online
+C200047,Muhammad Taylor,18/07/26,10/08/26,Rental Vehicle Excess Insurance,HUNGARY,5000,128.7,GBP,CWT,Online
+C200048,Sophia White,05/07/26,23/08/26,Rental Vehicle Excess Insurance,THAILAND,5000,29.7,GBP,CWT,Online
+C200049,Chloe Lewis,26/07/26,14/08/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,19.8,GBP,CWT,Online
+C200050,Harry Taylor,13/07/26,19/08/26,Premier Plan,INDONESIA,50000,38,GBP,KML,Online
+C200051,Muhammad Thompson,02/07/26,01/09/26,Value Plan,INDIA,10000,31,GBP,JWT,Online
+C200052,Freya Hall,08/07/26,13/08/26,Rental Vehicle Excess Insurance,QATAR,5000,29.7,GBP,CWT,Online
+C200053,Leo Murphy,25/07/26,12/08/26,Basic Plan,HONG KONG,10000,26,GBP,JZI,Online
+C200302,Chinedu Roberts,25/07/26,20/07/26,Value Plan,CHINA,10000,69,GBP,JZI,Online
+C200054,Ava Nowak,14/07/26,22/07/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,49.5,GBP,CWT,Online
+C200055,Oscar Lewis,04/07/26,24/08/26,Value Plan,UNITED STATES,10000,121,GBP,JZI,Online
+C200056,Ella Hall,19/07/26,20/07/26,Comprehensive Plan,MALAYSIA,25000,29,GBP,CCR,Offline
+C200057,Chinedu Roberts,25/07/26,31/08/26,Value Plan,CHINA,10000,69,GBP,JZI,Online
+C200058,Muhammad Hall,06/07/26,28/07/26,Basic Plan,HONG KONG,10000,35,GBP,JZI,Online
+C200059,Arthur Taylor,07/07/26,06/09/26,Rental Vehicle Excess Insurance,INDONESIA,5000,59.4,GBP,CWT,Online
+C200060,Grace Singh,11/07/26,14/07/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,19.8,GBP,CWT,Online
+C200061,Leo Taylor,31/07/26,17/01/27,Value Plan,INDIA,10000,31,GBP,JWT,Online
+C200062,Sophia Green,30/07/26,09/08/26,Basic Plan,INDONESIA,10000,18,GBP,JZI,Online
+C200063,Lily Khan,02/07/26,02/07/26,Single Trip Travel Protect Platinum,MALAYSIA,50000,26.5,GBP,LWC,Online
+C200064,Lily Green,31/07/26,28/09/26,Value Plan,INDIA,10000,31,GBP,JWT,Online
+C200065,Chinedu Murphy,26/07/26,29/07/26,Rental Vehicle Excess Insurance,UNITED ARAB EMIRATES,5000,29.7,GBP,CWT,Online
+C200066,Freya Adeyemi,29/07/26,08/08/26,Rental Vehicle Excess Insurance,NORWAY,5000,29.7,GBP,CWT,Online
+C200067,Amelia Johnson,17/07/26,21/07/26,Basic Plan,INDONESIA,10000,18,GBP,JZI,Online
+C200068,Tomasz Wilson,13/07/26,20/07/26,Value Plan,INDONESIA,10000,29,GBP,ART,Online
+C200069,Theo Taylor,18/07/26,07/10/26,Basic Plan,INDONESIA,10000,42,GBP,JZI,Online
+C200070,George Chen,10/07/26,11/10/26,Rental Vehicle Excess Insurance,ICELAND,5000,49.5,GBP,CWT,Online
+C200071,Theo Smith,15/07/26,18/11/26,Basic Plan,HONG KONG,10000,22,GBP,JZI,Online
+C200072,Theo Hall,31/07/26,12/10/26,Basic Plan,THAILAND,10000,22,GBP,JZI,Online
+C200073,Grace Hall,20/07/26,22/08/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,29.7,GBP,CWT,Online
+C200074,Arthur Smith,24/07/26,21/09/26,Value Plan,BRUNEI DARUSSALAM,10000,23,GBP,RAB,Online
+C200075,Leo Lewis,28/07/26,01/08/26,Travel Cruise Protect,MALAYSIA,15000,30,GBP,TST,Offline
+C200076,Grace Walker,28/07/26,01/11/26,Basic Plan,JAPAN,10000,44,GBP,JZI,Online
+C200077,Isla Chen,09/07/26,07/03/27,Rental Vehicle Excess Insurance,AUSTRALIA,5000,89.1,GBP,CWT,Online
+C200078,Theo Walker,24/07/26,12/08/26,Basic Plan,INDONESIA,10000,22,GBP,JZI,Online
+C200079,Lily Wilson,28/07/26,31/07/26,Basic Plan,PHILIPPINES,10000,18,GBP,JZI,Online
+C200080,Arthur Nowak,06/07/26,19/07/26,Value Plan,"KOREA, REPUBLIC OF",10000,45,GBP,JZI,Online
+C200081,Isla Roberts,19/07/26,20/07/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,9.9,GBP,CWT,Online
+C200082,Arthur Johnson,29/07/26,02/08/26,Basic Plan,VIET NAM,10000,18,GBP,JZI,Online
+C200083,Mia Okafor,11/07/26,04/08/26,Basic Plan,THAILAND,10000,22,GBP,JZI,Online
+C200084,Noah Chen,15/07/26,27/07/26,Basic Plan,PHILIPPINES,10000,30,GBP,JZI,Online
+C200085,Noah Smith,20/07/26,26/07/26,Basic Plan,INDONESIA,10000,22,GBP,JZI,Online
+C200086,Harry Thompson,29/07/26,02/08/26,Rental Vehicle Excess Insurance,CANADA,5000,9.9,GBP,CWT,Online
+C200087,Wei Taylor,15/07/26,03/02/27,Rental Vehicle Excess Insurance,THAILAND,5000,29.7,GBP,CWT,Online
+C200088,Harry Green,28/07/26,27/09/26,Rental Vehicle Excess Insurance,DENMARK,5000,69.3,GBP,CWT,Online
+C200089,Harry Jones,22/07/26,01/08/26,Basic Plan,HONG KONG,10000,26,GBP,JZI,Online
+C200090,Freya Jones,05/07/26,23/07/26,Basic Plan,JAPAN,10000,44,GBP,JZI,Online
+C200091,Theo Brown,23/07/26,01/08/26,Value Plan,BRUNEI DARUSSALAM,10000,15,GBP,RAB,Online
+C200092,Arthur Nowak,23/07/26,27/07/26,Basic Plan,MYANMAR,10000,18,GBP,JZI,Online
+C200093,Jack Roberts,14/07/26,04/08/26,Basic Plan,VIET NAM,10000,22,GBP,JZI,Online
+C200094,Amelia Wilson,30/07/26,10/09/26,Basic Plan,MALAYSIA,10000,18,GBP,JZI,Online
+C200095,Aisha Robinson,20/07/26,23/07/26,Basic Plan,THAILAND,10000,18,GBP,JZI,Online
+C200096,Siobhan Brown,25/07/26,27/08/26,Value Plan,HONG KONG,10000,58,GBP,JZI,Online
+C200097,Ava Robinson,11/07/26,17/08/26,Travel Cruise Protect,MALAYSIA,15000,30,GBP,TST,Offline
+C200098,Leo Singh,13/07/26,29/09/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,59.4,GBP,CWT,Online
+C200099,Jack Patel,18/07/26,10/08/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,89.1,GBP,CWT,Online
+C200100,Oliver Jones,12/07/26,19/07/26,Basic Plan,MYANMAR,10000,22,GBP,JZI,Online
+C200101,Ella White,03/07/26,28/10/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,29.7,GBP,CWT,Online
+C200102,Chinedu Hall,23/07/26,02/10/26,Travel Cruise Protect,MALAYSIA,15000,30,GBP,TST,Offline
+C200103,Harry Taylor,11/07/26,15/07/26,Basic Plan,MALAYSIA,10000,18,GBP,JZI,Online
+C200104,Wei Hall,14/07/26,19/09/26,Rental Vehicle Excess Insurance,SPAIN,5000,39.6,GBP,CWT,Online
+C200105,Priya Khan,05/07/26,19/08/26,Rental Vehicle Excess Insurance,THAILAND,5000,29.7,GBP,CWT,Online
+C200106,Arthur Brown,13/07/26,15/07/26,Single Trip Travel Protect Gold,MALAYSIA,50000,27,GBP,LWC,Online
+C200107,Chloe Davies,18/07/26,02/10/26,Basic Plan,PHILIPPINES,10000,37,GBP,JZI,Online
+C200108,Oliver White,27/07/26,08/10/26,Travel Cruise Protect,MALAYSIA,15000,30,GBP,TST,Offline
+C200109,Wei Patel,26/07/26,08/08/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,79.2,GBP,CWT,Online
+C200110,Ella Smith,30/07/26,04/08/26,Value Plan,BRUNEI DARUSSALAM,10000,15,GBP,RAB,Online
+C200111,Isla Murphy,25/07/26,04/08/26,Value Plan,INDIA,10000,50,GBP,JWT,Online
+C200112,Oscar Davies,06/07/26,22/07/26,Basic Plan,PHILIPPINES,10000,18,GBP,JZI,Online
+C200113,Oscar Chen,22/07/26,10/08/26,Basic Plan,VIET NAM,10000,22,GBP,JZI,Online
+C200114,Siobhan Johnson,21/07/26,02/08/26,Value Plan,BRUNEI DARUSSALAM,10000,15,GBP,RAB,Online
+C200115,Oliver Murphy,24/07/26,30/07/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,19.8,GBP,CWT,Online
+C200116,Tomasz Johnson,28/07/26,06/09/26,Rental Vehicle Excess Insurance,ITALY,5000,138.6,GBP,CWT,Online
+C200117,Amelia Adeyemi,22/07/26,16/08/26,Basic Plan,"TAIWAN, PROVINCE OF CHINA",10000,22,GBP,JZI,Online
+C200118,Amelia Green,26/07/26,13/08/26,Rental Vehicle Excess Insurance,THAILAND,5000,19.8,GBP,CWT,Online
+C200119,Siobhan Davies,10/07/26,12/07/26,24 Protect,PHILIPPINES,15000,7.19,GBP,ART,Online
+C200120,Muhammad Roberts,22/07/26,08/09/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,79.2,GBP,CWT,Online
+C200121,Leo Davies,24/07/26,31/07/26,Value Plan,BRUNEI DARUSSALAM,10000,15,GBP,RAB,Online
+C200122,Wei Thompson,06/07/26,23/07/26,Value Plan,BRUNEI DARUSSALAM,10000,23,GBP,RAB,Online
+C200123,Ava Taylor,19/07/26,30/10/26,Premier Plan,INDONESIA,50000,38,GBP,KML,Online
+C200124,Chinedu Johnson,04/07/26,25/07/26,Premier Plan,UNITED KINGDOM,50000,111,GBP,KML,Online
+C200125,Isla Walker,16/07/26,01/02/27,Value Plan,SPAIN,10000,208,GBP,JZI,Online
+C200007,Lily Jones,12/07/26,25/07/26,Basic Plan,CHINA,10000,31,GBP,JZI,Online
+C200126,Harry Patel,06/07/26,11/07/26,Comprehensive Plan,THAILAND,25000,29,GBP,CCR,Offline
+C200127,Ava Murphy,02/07/26,04/09/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,89.1,GBP,CWT,Online
+C200128,Noah Roberts,23/07/26,25/07/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,19.8,GBP,CWT,Online
+C200129,Amelia Brown,24/07/26,28/09/26,Basic Plan,MALAYSIA,10000,18,GBP,JZI,Online
+,Lily Green,31/07/26,28/09/26,Value Plan,INDIA,10000,31,GBP,JWT,Online
+C200130,Wei Khan,06/07/26,15/07/26,Rental Vehicle Excess Insurance,MALAYSIA,5000,19.8,GBP,CWT,Online
+C200131,Sophia Khan,06/07/26,13/07/26,Basic Plan,PHILIPPINES,10000,30,GBP,JZI,Online
+C200132,Ella Hall,21/07/26,04/08/26,Value Plan,INDIA,10000,31,GBP,JWT,Online
+C200133,Oscar Murphy,20/07/26,03/08/26,Rental Vehicle Excess Insurance,GERMANY,5000,59.4,GBP,CWT,Online
+C200134,Ella Roberts,27/07/26,13/01/27,Value Plan,INDIA,10000,31,GBP,JWT,Online
+C200135,Arthur Green,30/07/26,09/08/26,Value Plan,INDIA,10000,31,GBP,JWT,Online
+C200136,Aisha Green,07/07/26,30/01/27,Rental Vehicle Excess Insurance,SWITZERLAND,5000,108.9,GBP,CWT,Online
+C200137,Siobhan Williams,21/07/26,07/10/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,59.4,GBP,CWT,Online
+C200138,Mia Roberts,09/07/26,17/07/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,49.5,GBP,CWT,Online
+C200139,Sophia Nowak,03/07/26,23/08/26,Premier Plan,UNITED KINGDOM,50000,158,GBP,KML,Online
+C200140,Mia Walker,09/07/26,12/07/26,Rental Vehicle Excess Insurance,UNITED KINGDOM,5000,29.7,GBP,CWT,Online
+C200141,Siobhan Lewis,02/07/26,11/07/26,Value Plan,CHINA,10000,58,GBP,JZI,Online
+C200142,Noah Green,21/07/26,31/07/26,Rental Vehicle Excess Insurance,SPAIN,5000,69.3,GBP,CWT,Online
+C200143,Oscar Nowak,01/07/26,25/07/26,Basic Plan,THAILAND,10000,22,GBP,JZI,Online
+C200144,George Johnson,16/07/26,24/07/26,Basic Plan,MYANMAR,10000,18,GBP,JZI,Online
+C200145,Sophia Walker,24/07/26,17/09/26,Rental Vehicle Excess Insurance,UNITED STATES,5000,89.1,GBP,CWT,Online
+C200146,Amelia Taylor,09/07/26,25/08/26,Rental Vehicle Excess Insurance,NORWAY,5000,19.8,GBP,CWT,Online
+C200147,Isla Thompson,15/07/26,16/07/26,Basic Plan,PHILIPPINES,10000,22,GBP,JZI,Online
+C200148,Muhammad Smith,07/07/26,28/07/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,19.8,GBP,CWT,Online
+C200149,Jack Singh,19/07/26,23/08/26,Travel Cruise Protect,THAILAND,15000,30,GBP,TST,Offline
+C200150,Oscar Brown,08/07/26,14/08/26,Rental Vehicle Excess Insurance,AUSTRALIA,5000,59.4,GBP,CWT,Online

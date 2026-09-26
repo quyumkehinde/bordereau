@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: bordereau
+          POSTGRES_PASSWORD: bordereau
+          POSTGRES_DB: bordereau
+        ports: ["5433:5432"]
+        options: >-
+          --health-cmd "pg_isready -U bordereau"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://bordereau:bordereau@localhost:5433/bordereau
+      STORAGE_DRIVER: local
+      LOCAL_STORAGE_DIR: ./uploads
+      SESSION_SECRET: ci-secret
+      DEMO_PASSWORD: demo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests (includes every planted error in the manifest)
+        run: npm test
+
+      - name: Migrate and seed all insurers
+        run: npm run db:migrate && npm run seed -- --all
+
+      - name: Verify seeded data reconciles
+        run: npm run verify
+
+      - name: Verify catches the planted movement break
+        run: |
+          npm run seed -- --all --broken
+          set +e
+          npm run verify
+          code=$?
+          set -e
+          if [ "$code" -ne 1 ]; then echo "expected verify to exit 1 on the planted break, got $code"; exit 1; fi
+
+      - name: Build
+        run: npm run build
+
+      - name: End-to-end demo flow
+        run: |
+          npx playwright install --with-deps chromium
+          CI=1 npm run e2e
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7

@@ -1,0 +1,16 @@
+SPEC.md
+node_modules/
+.env*
+.next/
+!.env.example
+uploads/
+out/
+data/raw/
+*.tsbuildinfo
+next-env.d.ts
+.terraform/
+*.tfstate*
+dist-scripts/
+test-results/
+playwright-report/
+PLAN.md

@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+uploads
+data/raw
+dist-scripts
+test-results
+playwright-report
+infra
+.env*
+SPEC.md

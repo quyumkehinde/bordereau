@@ -1,0 +1,45 @@
+{
+  "name": "bordereau",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "generate": "tsx scripts/generate.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "verify": "tsx scripts/verify.ts",
+    "build:scripts": "esbuild scripts/migrate.ts scripts/seed.ts --bundle --platform=node --format=esm --target=node22 --outdir=dist-scripts --out-extension:.js=.mjs --banner:js=\"import { createRequire } from 'module'; const require = createRequire(import.meta.url);\"",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
+    "@google-cloud/storage": "^8.2.0",
+    "drizzle-orm": "^0.45.3",
+    "exceljs": "^4.4.0",
+    "next": "^16.3.6",
+    "papaparse": "^5.7.0",
+    "postgres": "^3.4.9",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/papaparse": "^5.5.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "dotenv": "^18.0.4",
+    "drizzle-kit": "^0.31.11",
+    "esbuild": "^0.25.12",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^3.2.7"
+  }
+}
