@@ -6,7 +6,10 @@ const url = process.env.DATABASE_URL ?? "postgres://bordereau:bordereau@localhos
 
 // Reuse one pool across Next.js dev hot reloads.
 const globalForDb = globalThis as unknown as { pg?: ReturnType<typeof postgres> };
-export const pg = globalForDb.pg ?? postgres(url, { max: 10, onnotice: () => {} });
+// On Cloud Run, Cloud SQL is reached over a unix socket. postgres.js takes the socket directory as
+// the `host` option (a URL can't carry it), and it overrides the placeholder host in DATABASE_URL.
+const socketDir = process.env.DB_SOCKET_DIR;
+export const pg = globalForDb.pg ?? postgres(url, { max: 10, onnotice: () => {}, ...(socketDir ? { host: socketDir } : {}) });
 if (process.env.NODE_ENV !== "production") globalForDb.pg = pg;
 
 export const db = drizzle(pg, { schema });

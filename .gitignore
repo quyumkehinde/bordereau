@@ -14,3 +14,4 @@ dist-scripts/
 test-results/
 playwright-report/
 PLAN.md
+infra/tf.plan

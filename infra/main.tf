@@ -35,11 +35,15 @@ resource "google_sql_database_instance" "db" {
   database_version    = "POSTGRES_17"
   region              = var.region
   deletion_protection = var.deletion_protection
+  # Cheap: shared-core tier, one zone, fixed 10 GB, no backups.
   settings {
     edition           = "ENTERPRISE"
     tier              = var.db_tier
     availability_type = "ZONAL"
-    backup_configuration { enabled = true }
+    disk_type         = "PD_SSD"
+    disk_size         = 10
+    disk_autoresize   = false
+    backup_configuration { enabled = false }
     ip_configuration { ipv4_enabled = true } # Cloud Run connects through the Cloud SQL connector, not an authorised network
   }
   depends_on = [google_project_service.apis]
@@ -75,7 +79,8 @@ resource "random_password" "demo" {
 
 locals {
   generated_secrets = {
-    "database-url"   = "postgres://${google_sql_user.app.name}:${random_password.db.result}@/${google_sql_database.app.name}"
+    # The host is a placeholder; the app connects over the socket in DB_SOCKET_DIR.
+    "database-url"   = "postgres://${google_sql_user.app.name}:${random_password.db.result}@localhost/${google_sql_database.app.name}"
     "session-secret" = random_password.session.result
     "demo-password"  = random_password.demo.result
   }
@@ -139,8 +144,7 @@ locals {
   env = {
     STORAGE_DRIVER = "gcs"
     GCS_BUCKET     = google_storage_bucket.uploads.name
-    # postgres.js reads the socket directory from PGHOST when the URL has no host.
-    PGHOST = "${local.socket_dir}/${google_sql_database_instance.db.connection_name}"
+    DB_SOCKET_DIR  = "${local.socket_dir}/${google_sql_database_instance.db.connection_name}"
   }
   secret_env = {
     DATABASE_URL      = google_secret_manager_secret.generated["database-url"].secret_id
