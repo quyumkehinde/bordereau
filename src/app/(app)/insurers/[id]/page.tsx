@@ -82,8 +82,8 @@ export default async function InsurerPage({ params }: { params: Promise<{ id: st
                   <td className="num">{i.loadedCount !== null ? `${i.loadedCount} / ${i.rowCount}` : <span className="faint">–</span>}</td>
                   <td className="num">
                     <span className="row" style={{ justifyContent: "flex-end", gap: 4 }}>
-                      {i.errors > 0 && <span className="badge error">{i.errors}</span>}
-                      {i.warnings > 0 && <span className="badge warning">{i.warnings}</span>}
+                      {i.errors > 0 && <Link className="badge error" href={`/imports/${i.id}?severity=error`} aria-label={`View ${i.errors} errors in ${i.filename}`} title="View errors">{i.errors}</Link>}
+                      {i.warnings > 0 && <Link className="badge warning" href={`/imports/${i.id}?severity=warning`} aria-label={`View ${i.warnings} warnings in ${i.filename}`} title="View warnings">{i.warnings}</Link>}
                       {i.errors === 0 && i.warnings === 0 && i.status === "imported" && <span className="faint">0</span>}
                     </span>
                   </td>
