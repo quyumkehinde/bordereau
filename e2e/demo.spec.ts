@@ -15,7 +15,7 @@ async function upload(page: Page, kind: "Policies" | "Claims", month: string, fi
 test("onboard Insurer C, catch planted errors, reconcile month 2", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveURL(/\/login/);
-  await page.getByLabel("Password").fill("demo");
+  await page.getByLabel("Password").fill(process.env.E2E_PASSWORD ?? "demo");
   await page.getByRole("button", { name: "Sign in" }).click();
   await expect(page.getByRole("heading", { name: "Insurers" })).toBeVisible();
 

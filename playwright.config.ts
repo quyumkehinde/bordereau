@@ -1,6 +1,9 @@
 import { defineConfig } from "@playwright/test";
 
 const PORT = 3100;
+// Set E2E_BASE_URL (and E2E_PASSWORD) to run against a deployed instance instead of a local server.
+// That run changes the deployment's data; reset it afterwards with the prepare-db job.
+const remote = process.env.E2E_BASE_URL;
 
 export default defineConfig({
   testDir: "e2e",
@@ -10,9 +13,9 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   reporter: process.env.CI ? "list" : [["list"]],
-  use: { baseURL: `http://localhost:${PORT}`, trace: "retain-on-failure" },
-  globalSetup: "./e2e/global-setup.ts",
-  webServer: {
+  use: { baseURL: remote ?? `http://localhost:${PORT}`, trace: "retain-on-failure" },
+  globalSetup: remote ? undefined : "./e2e/global-setup.ts",
+  webServer: remote ? undefined : {
     // CI runs against a production build; locally, dev is fine.
     command: process.env.CI ? `npx next start -p ${PORT}` : `npx next dev -p ${PORT}`,
     url: `http://localhost:${PORT}/login`,
