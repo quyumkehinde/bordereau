@@ -48,7 +48,7 @@ export default async function MapPage({ params }: { params: Promise<{ id: string
         </div>
       ) : (
         <div className="alert info" style={{ marginBottom: 16 }}>
-          {draft.source === "claude" ? <>Proposed by Claude (<code>{SUGGEST_MODEL}</code>) from the headers and {Math.min(20, table.rows.length)} sample rows.</> : <>Proposed by header matching (no <code>ANTHROPIC_API_KEY</code> set).</>}{" "}
+          {draft.source === "gemini" ? <>Proposed by Gemini (<code>{SUGGEST_MODEL}</code>) from the headers and {Math.min(20, table.rows.length)} sample rows.</> : <>Proposed by header matching.</>}{" "}
           Every proposal was also checked against the sample values. Accept, change or ignore each column, then approve.
         </div>
       )}

@@ -103,7 +103,7 @@ export async function loadTable(storagePath: string, filename: string): Promise<
 
 export interface MappingDraft {
   mapping: Mapping;
-  source: "claude" | "heuristic";
+  source: "gemini" | "heuristic";
   warning?: string;
   carriedFrom?: { configId: number; version: number };
   /** headers that need a decision (all of them for a new insurer; only changed ones for a new layout) */

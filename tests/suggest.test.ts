@@ -1,11 +1,11 @@
-// The no-API-key fallback should get the obvious columns right on every generated layout, and the
+// The no-Vertex fallback should get the obvious columns right on every generated layout, and the
 // sample check must flag a wrong date order instead of letting it through.
 import { describe, expect, it } from "vitest";
 import { checkAgainstSamples, suggestMapping } from "@/lib/suggest";
 import { manifest, parsePath } from "./helpers";
 
 describe("heuristic suggestions", () => {
-  delete process.env.ANTHROPIC_API_KEY;
+  delete process.env.GOOGLE_CLOUD_PROJECT;
   it.each(manifest.files.map((f) => [f.path, f] as const))("%s matches the ground-truth mapping", async (_p, file) => {
     const table = await parsePath(file.path);
     const { mapping, source } = await suggestMapping({ kind: file.kind, table });

@@ -22,6 +22,6 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     // Deterministic: header-matching suggestions, not the model.
-    env: { ANTHROPIC_API_KEY: "", DEMO_PASSWORD: "demo", SESSION_SECRET: "e2e-secret" },
+    env: { GOOGLE_CLOUD_PROJECT: "", DEMO_PASSWORD: "demo", SESSION_SECRET: "e2e-secret" },
   },
 });

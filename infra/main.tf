@@ -1,6 +1,6 @@
 locals {
   name     = "bordereau"
-  services = ["run.googleapis.com", "sqladmin.googleapis.com", "secretmanager.googleapis.com", "artifactregistry.googleapis.com", "storage.googleapis.com"]
+  services = ["run.googleapis.com", "sqladmin.googleapis.com", "secretmanager.googleapis.com", "artifactregistry.googleapis.com", "storage.googleapis.com", "aiplatform.googleapis.com"]
 }
 
 resource "google_project_service" "apis" {
@@ -101,16 +101,6 @@ resource "google_secret_manager_secret_version" "generated" {
   secret_data = each.value
 }
 
-# The Anthropic key is added out of band so it never enters Terraform state:
-#   printf %s "$KEY" | gcloud secrets versions add bordereau-anthropic-api-key --data-file=-
-resource "google_secret_manager_secret" "anthropic" {
-  secret_id = "${local.name}-anthropic-api-key"
-  replication {
-    auto {}
-  }
-  depends_on = [google_project_service.apis]
-}
-
 # ------------------------------------------------------------------ runtime identity
 
 resource "google_service_account" "app" {
@@ -124,6 +114,12 @@ resource "google_project_iam_member" "sql_client" {
   member  = "serviceAccount:${google_service_account.app.email}"
 }
 
+resource "google_project_iam_member" "vertex_user" {
+  project = var.project_id
+  role    = "roles/aiplatform.user"
+  member  = "serviceAccount:${google_service_account.app.email}"
+}
+
 resource "google_storage_bucket_iam_member" "uploads" {
   bucket = google_storage_bucket.uploads.name
   role   = "roles/storage.objectAdmin"
@@ -131,7 +127,7 @@ resource "google_storage_bucket_iam_member" "uploads" {
 }
 
 resource "google_secret_manager_secret_iam_member" "access" {
-  for_each  = merge({ for k, s in google_secret_manager_secret.generated : k => s.id }, { "anthropic-api-key" = google_secret_manager_secret.anthropic.id })
+  for_each  = { for k, s in google_secret_manager_secret.generated : k => s.id }
   secret_id = each.value
   role      = "roles/secretmanager.secretAccessor"
   member    = "serviceAccount:${google_service_account.app.email}"
@@ -142,15 +138,15 @@ resource "google_secret_manager_secret_iam_member" "access" {
 locals {
   socket_dir = "/cloudsql"
   env = {
-    STORAGE_DRIVER = "gcs"
-    GCS_BUCKET     = google_storage_bucket.uploads.name
-    DB_SOCKET_DIR  = "${local.socket_dir}/${google_sql_database_instance.db.connection_name}"
+    GOOGLE_CLOUD_PROJECT = var.project_id
+    STORAGE_DRIVER       = "gcs"
+    GCS_BUCKET           = google_storage_bucket.uploads.name
+    DB_SOCKET_DIR        = "${local.socket_dir}/${google_sql_database_instance.db.connection_name}"
   }
   secret_env = {
-    DATABASE_URL      = google_secret_manager_secret.generated["database-url"].secret_id
-    SESSION_SECRET    = google_secret_manager_secret.generated["session-secret"].secret_id
-    DEMO_PASSWORD     = google_secret_manager_secret.generated["demo-password"].secret_id
-    ANTHROPIC_API_KEY = google_secret_manager_secret.anthropic.secret_id
+    DATABASE_URL   = google_secret_manager_secret.generated["database-url"].secret_id
+    SESSION_SECRET = google_secret_manager_secret.generated["session-secret"].secret_id
+    DEMO_PASSWORD  = google_secret_manager_secret.generated["demo-password"].secret_id
   }
 }
 
@@ -204,7 +200,7 @@ resource "google_cloud_run_v2_service" "app" {
       }
     }
   }
-  depends_on = [google_secret_manager_secret_iam_member.access, google_project_iam_member.sql_client, google_secret_manager_secret_version.generated]
+  depends_on = [google_secret_manager_secret_iam_member.access, google_project_iam_member.sql_client, google_project_iam_member.vertex_user, google_secret_manager_secret_version.generated]
 }
 
 # The app has its own demo login, so the service itself is public.

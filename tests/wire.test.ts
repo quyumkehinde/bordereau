@@ -1,4 +1,4 @@
-// The Claude path's output handling, without calling the API.
+// The model suggestion path's output handling, without calling the API.
 import { expect, it } from "vitest";
 import { wireToMapping, type WireSuggestion } from "@/lib/suggest";
 

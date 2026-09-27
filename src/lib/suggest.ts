@@ -1,20 +1,20 @@
-// Mapping suggestions. Claude reads headers plus a few sample rows and proposes a mapping; code
+// Mapping suggestions. Gemini reads headers plus a few sample rows and proposes a mapping; code
 // validates it, checks it against the samples, and a human approves it. The model never touches
 // row data at scale.
-import Anthropic from "@anthropic-ai/sdk";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
+import { GoogleAuth } from "google-auth-library";
 import { z } from "zod";
 import { fieldsFor, type FileKind } from "./canonical";
 import { MappingSchema, normalizeHeader, parseAmount, parseDate, type ColumnMapping, type Mapping, type Transform } from "./mapping";
 import { cellText, type Cell, type Table } from "./parse";
 
-export const SUGGEST_MODEL = "claude-sonnet-5";
+export const SUGGEST_MODEL = "gemini-3-flash-preview";
+const auth = new GoogleAuth({ scopes: ["https://www.googleapis.com/auth/cloud-platform"] });
 const SAMPLE_ROWS = 20;
 
 export interface Suggestion {
   mapping: Mapping;
-  source: "claude" | "heuristic";
-  /** set when Claude was configured but failed and header matching was used instead */
+  source: "gemini" | "heuristic";
+  /** set when Gemini was configured but failed and header matching was used instead */
   warning?: string;
 }
 
@@ -28,14 +28,14 @@ export interface SuggestInput {
 export async function suggestMapping(input: SuggestInput): Promise<Suggestion> {
   const headers = input.onlyHeaders ?? input.table.headers;
   let result: Suggestion;
-  if (process.env.ANTHROPIC_API_KEY) {
+  if (process.env.GOOGLE_CLOUD_PROJECT) {
     try {
-      result = { mapping: await suggestWithClaude(input.kind, input.table, headers), source: "claude" };
+      result = { mapping: await suggestWithGemini(input.kind, input.table, headers), source: "gemini" };
     } catch (e) {
       // A reviewer can always map by hand; don't let an API problem block onboarding.
-      console.error("Claude mapping suggestion failed; falling back to header matching", e);
-      const reason = e instanceof Anthropic.APIError ? `API error ${e.status ?? ""}`.trim() : e instanceof Error ? e.message : String(e);
-      result = { mapping: suggestHeuristically(input.kind, input.table, headers), source: "heuristic", warning: `Claude suggestion failed (${reason}); showing header matching instead.` };
+      // Do not log the provider error object: it can contain auth headers and source samples.
+      console.error("Gemini mapping suggestion failed; falling back to header matching");
+      result = { mapping: suggestHeuristically(input.kind, input.table, headers), source: "heuristic", warning: "Gemini suggestion unavailable; showing header matching instead. Review each column before approving." };
     }
   } else {
     result = { mapping: suggestHeuristically(input.kind, input.table, headers), source: "heuristic" };
@@ -43,10 +43,9 @@ export async function suggestMapping(input: SuggestInput): Promise<Suggestion> {
   return { ...result, mapping: checkAgainstSamples(result.mapping, input.table) };
 }
 
-// ---------------------------------------------------------------- Claude
+// ---------------------------------------------------------------- Gemini on Vertex AI
 
-// Structured outputs don't accept records or numeric bounds, so the wire shape is flat and
-// converted to the internal Mapping afterwards.
+// A flat wire shape is converted to the internal Mapping after Zod validation.
 function wireSchema(kind: FileKind) {
   const targets: [string, ...string[]] = ["ignore", ...fieldsFor(kind).map((f) => f.name)];
   return z.object({
@@ -74,31 +73,44 @@ Rules:
 - Claim status: transform "enum", mapping every raw value seen to one of open, closed, reopened. A yes/no "closed" flag maps Y to closed and N to open.
 - Confidence reflects how sure you are from the header and the values together.`;
 
-async function suggestWithClaude(kind: FileKind, table: Table, headers: string[]): Promise<Mapping> {
-  const client = new Anthropic();
+async function suggestWithGemini(kind: FileKind, table: Table, headers: string[]): Promise<Mapping> {
   const idx = headers.map((h) => table.headers.indexOf(h));
   const samples = table.rows.slice(0, SAMPLE_ROWS).map((r) => idx.map((i) => cellText(r.cells[i])));
   const fields = fieldsFor(kind).map((f) => `- ${f.name} (${f.type}${f.required ? ", required" : ""}): ${f.description}`).join("\n");
 
-  const response = await client.messages.parse({
-    model: SUGGEST_MODEL,
-    max_tokens: 16000,
-    system: SYSTEM,
-    messages: [
-      {
-        role: "user",
-        content: `File kind: ${kind} bordereau\n\nCanonical fields:\n${fields}\n\nHeaders (JSON):\n${JSON.stringify(headers)}\n\nSample rows (JSON, same column order):\n${JSON.stringify(samples)}`,
+  const schema = wireSchema(kind);
+  const project = encodeURIComponent(process.env.GOOGLE_CLOUD_PROJECT!);
+  const response = await auth.request<GeminiResponse>({
+    url: `https://aiplatform.googleapis.com/v1/projects/${project}/locations/global/publishers/google/models/${SUGGEST_MODEL}:generateContent`,
+    method: "POST",
+    timeout: 60_000,
+    retry: false,
+    data: {
+      systemInstruction: { parts: [{ text: SYSTEM }] },
+      contents: [{ role: "user", parts: [{ text: `File kind: ${kind} bordereau\n\nCanonical fields:\n${fields}\n\nHeaders (JSON):\n${JSON.stringify(headers)}\n\nSample rows (JSON, same column order):\n${JSON.stringify(samples)}` }] }],
+      generationConfig: {
+        maxOutputTokens: 16000,
+        thinkingConfig: { thinkingLevel: "MINIMAL" },
+        responseMimeType: "application/json",
+        responseJsonSchema: z.toJSONSchema(schema),
       },
-    ],
-    output_config: { format: zodOutputFormat(wireSchema(kind)) },
+    },
   });
 
-  if (response.stop_reason === "refusal") throw new Error("Mapping suggestion was declined by the model");
-  if (response.stop_reason === "max_tokens") throw new Error("Mapping suggestion was cut off (max_tokens)");
-  const out = response.parsed_output;
-  if (!out) throw new Error("Mapping suggestion did not match the expected schema");
+  const candidate = response.data.candidates?.[0];
+  if (candidate?.finishReason !== "STOP") throw new Error("Mapping suggestion did not complete");
+  const text = candidate.content?.parts?.filter((part) => !part.thought).map((part) => part.text ?? "").join("");
+  if (!text) throw new Error("Mapping suggestion was empty");
+  const out = schema.parse(JSON.parse(text));
 
   return wireToMapping(headers, out);
+}
+
+interface GeminiResponse {
+  candidates?: Array<{
+    finishReason?: string;
+    content?: { parts?: Array<{ text?: string; thought?: boolean }> };
+  }>;
 }
 
 export type WireSuggestion = z.infer<ReturnType<typeof wireSchema>>;
@@ -146,7 +158,7 @@ function dedupeTargets(m: Mapping): Mapping {
   };
 }
 
-// ---------------------------------------------------------------- heuristic fallback (no API key)
+// ---------------------------------------------------------------- heuristic fallback (Vertex not configured or unavailable)
 
 const SYNONYMS: Record<FileKind, Record<string, string[]>> = {
   policy: {

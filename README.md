@@ -17,7 +17,7 @@ Onboard a new insurer's messy bordereau in minutes, catch every data problem bef
       │
       ├─ layout changed ─▶ carry the saved mapping over; review only new columns
       │
-      └─ new insurer ───▶ Claude proposes a mapping from headers + 20 sample rows
+      └─ new insurer ───▶ Gemini proposes a mapping from headers + 20 sample rows
                            (Zod-validated JSON, checked against the samples)
                            ─▶ human accepts / edits / ignores ─▶ versioned config
       ▼
@@ -59,14 +59,22 @@ Requires Node 22+ and Docker.
 
 ```bash
 docker compose up -d                 # Postgres on :5433
-cp .env.example .env                 # add ANTHROPIC_API_KEY for Claude suggestions (optional)
+cp .env.example .env                 # optionally configure Gemini on Vertex AI (below)
 npm ci
 npm run db:migrate
 npm run seed                         # A and B loaded; C created empty, ready to onboard
 npm run dev                          # http://localhost:3000, password "demo"
 ```
 
-Without `ANTHROPIC_API_KEY`, mapping suggestions fall back to deterministic header matching, which is what CI and the e2e test use.
+For Gemini suggestions, enable Vertex AI in your Google Cloud project and authenticate locally:
+
+```bash
+gcloud services enable aiplatform.googleapis.com --project=YOUR_PROJECT_ID
+gcloud auth application-default login
+gcloud auth application-default set-quota-project YOUR_PROJECT_ID
+```
+
+Set `GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID` in `.env`; your identity needs `roles/aiplatform.user`. Suggestions use Gemini 3 Flash on Vertex AI. Without a project, or if the request fails, the app uses header matching.
 
 | Command | |
 | --- | --- |
@@ -91,7 +99,6 @@ cd infra
 terraform init
 terraform apply -var project_id=<project> -var image=<region>-docker.pkg.dev/<project>/bordereau/app:<tag>
 # build and push the image to the repository in the `image_repository` output, then:
-printf %s "$ANTHROPIC_API_KEY" | gcloud secrets versions add bordereau-anthropic-api-key --data-file=-
 gcloud run jobs execute bordereau-prepare-db --region europe-west2 --wait   # migrate + seed
 gcloud secrets versions access latest --secret bordereau-demo-password     # the login
 ```
@@ -104,3 +111,19 @@ The first `apply` needs the Artifact Registry repository before the image exists
 - An insurer's first month on file is taken as the opening position: movement checks start from its second month.
 - One shared demo login; no users or permissions (a non-goal).
 - The CRS v5.2 field list is provisional until confirmed against the LMG export.
+
+## Update the demo
+
+Commit changes, then run from the project root with Docker running:
+
+```bash
+IMAGE="europe-west2-docker.pkg.dev/bordereau-demo/bordereau/app:$(git rev-parse --short HEAD)"
+gcloud auth configure-docker europe-west2-docker.pkg.dev
+docker buildx build --platform linux/amd64 --tag "$IMAGE" --push .
+terraform -chdir=infra plan -var project_id=bordereau-demo -var "image=$IMAGE" -out=tf.plan
+terraform -chdir=infra apply tf.plan
+```
+
+Review the plan before applying. Terraform configures `GOOGLE_CLOUD_PROJECT`, Vertex AI access, and the Cloud Run image.
+
+Do not run `bordereau-prepare-db` unless you want to reset the demo data. Test a fresh import and confirm **Proposed by Gemini**.

@@ -53,7 +53,7 @@ export const imports = pgTable(
     headers: jsonb("headers").$type<string[]>(),
     headersHash: text("headers_hash"),
     layoutChange: jsonb("layout_change").$type<LayoutChange>(),
-    suggestion: jsonb("suggestion").$type<{ mapping: Mapping; source: "claude" | "heuristic"; warning?: string }>(),
+    suggestion: jsonb("suggestion").$type<{ mapping: Mapping; source: "gemini" | "heuristic"; warning?: string }>(),
     rowCount: integer("row_count"),
     loadedCount: integer("loaded_count"),
     error: text("error"),
